@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayush - The Virtual Herbal Garden</title>
+    <link rel="stylesheet" href="nursery.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+    
+    <!-- Header Section -->
+    <header class="header-bar">
+        <div class="header-top">
+            <div class="header-info">
+                <span><i class="fas fa-map-marker-alt"></i> Bennett University, Greater Noida, PIN - 201310</span>
+                <span><i class="fas fa-envelope"></i> support.ayush@gmail.com</span>
+                <span><i class="fas fa-phone-alt"></i> +91-8368570100</span>
+            </div>
+            <div class="header-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="logo-container">
+                <h1>AYUSH</h1>
+                <p>The Virtual Herbal Garden</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+        <div class="container">
+            <h1>Nearby Nurseries</h1>
+            <div class="nursery-list">
+
+                <!-- Nursery 1 -->
+                <div class="nursery">
+                    <img src="images/hamara.jpg" alt="Hamara Maali" onerror="this.src='placeholder.jpg'">
+                    <div class="nursery-info">
+                        <h3>Hamara Maali (Unit Of Heritage India) - RAKPLAM LEAVES</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Greater Noida, Greater Noida</p>
+                        <span class="rating">⭐ 4.6 (71 Ratings)</span>
+                        <p>Specialties: <span class="tag">Terrace Gardening</span> <span class="tag">Plant Nurseries</span></p>
+                        <button class="whatsapp-btn"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+                        <!-- <button class="get-deal-btn">Get Best Deal</button> -->
+                        <button class="map-btn" onclick="openMap(28.474389, 77.504164)">View on Map</button>
+                    </div>
+                </div>
+
+                <!-- Nursery 2 -->
+                <div class="nursery">
+                    <img src="images/plantmitra.jpg" alt="Plant Mitra Nursery" onerror="this.src=''">
+                    <div class="nursery-info">
+                        <h3>Plant Mitra Nursery</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Beta -1st, Greater Noida</p>
+                        <span class="rating">⭐ 5.0 (4 Ratings)</span>
+                        <p>Specialties: <span class="tag">Plant Nurseries</span> <span class="tag">Flower Pot Dealers</span></p>
+                        <button class="whatsapp-btn"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+                        <!-- <button class="get-deal-btn">Get Best Deal</button> -->
+                        <button class="map-btn" onclick="openMap(28.467611, 77.512030)">View on Map</button>
+                    </div>
+                </div>
+
+                <!-- Nursery 3 (New) -->
+                <div class="nursery">
+                    <img src="images/greencreen.jpg" alt="The Green Creen" onerror="this.src='placeholder.jpg'">
+                    <div class="nursery-info">
+                        <h3>The Green Creen</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Green Organic Bagicha, Khanpur Village Near Sirsa Gol Chakker, 130 Meters Road, Greater Noida, Uttar Pradesh 201308</p>
+                        <span class="rating">⭐ 4.6 (4 Ratings)</span>
+                        <p>Specialties: <span class="tag">Organic Plants</span> <span class="tag">Indoor Plants</span></p>
+                        <button class="whatsapp-btn"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+                        <!-- <button class="get-deal-btn">Get Best Deal</button> -->
+                        <button class="map-btn" onclick="openMap(28.42431777527591, 77.57430747237467)">View on Map</button>
+                    </div>
+                </div>
+
+                <!-- Nursery 4 (New) -->
+                <div class="nursery">
+                    <img src="images/balaji.jpg" alt="Balaji Nursery" onerror="this.src='placeholder.jpg'">
+                    <div class="nursery-info">
+                        <h3>Balaji Nursery</h3>
+                        <p><i class="fas fa-map-marker-alt"></i>Chorisia Speciosa Estate, Phi III, Greater Noida, Uttar Pradesh 201310</p>
+                        <span class="rating">⭐ 4.6 (73 Ratings)</span>
+                        <p>Specialties: <span class="tag">Exotic Plants</span> <span class="tag">Succulents</span></p>
+                        <button class="whatsapp-btn"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+                        <!-- <button class="get-deal-btn">Get Best Deal</button> -->
+                        <button class="map-btn" onclick="openMap(28.448007814681773, 77.52779126716199)">View on Map</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leaflet Map -->
+            <div id="map" style="height: 400px; width: 100%; margin-top: 20px;"></div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2025 Virtual Herbal Garden | <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="leaflet.js"></script>
+
+    <script>
+        function openMap(lat, lon) {
+            window.open(`https://www.google.com/maps/search/?api=1&query=${lat},${lon}`, "_blank");
+        }
+    </script>
+
+</body>
+</html>

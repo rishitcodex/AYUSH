@@ -1,0 +1,180 @@
+/* General Body Styling */
+body {
+  font-family: '', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Logo Container */
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  border: 3px solid #28a745;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.007);
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+.logo-container h1 {
+  font-size: 28px;
+  color: #28a745;
+  margin: 0;
+}
+
+.logo-container p {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+}
+
+
+/* Login Box */
+.login-container {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  width: 100%;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.login-container h2 {
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="email"], input[type="password"], input[type="text"], input[type="tel"] {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 25px;
+}
+button.secondary-btn {
+  width: 20%;
+  margin-bottom: 15px;
+  padding: 5px;
+  background: #1C5230;
+  border: none;
+  color: white;
+  font-size: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+button {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: #1C5230;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+
+button:hover {
+  background: #218838;
+  transform: scale(1.05);
+}
+
+/* Header Section */
+.header-bar {
+  width: 100%;
+  background-color: #28a745;
+  color: white;
+  font-size: 14px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.header-info span {
+  margin-right: 15px;
+}
+
+.header-icons a {
+  color: white;
+  margin-left: 10px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.header-bottom {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #fff;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 12px;
+  width: 100%;
+}
+
+footer a {
+  color: #28a745;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

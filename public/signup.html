@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayush - The Virtual Herbal Garden</title>
+    <link rel="stylesheet" href="signup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header-bar">
+        <div class="header-top">
+            <div class="header-info">
+                <span><i class="fas fa-map-marker-alt"></i> Bennett University, Greater Noida, PIN - 201310</span>
+                <span><i class="fas fa-envelope"></i> support.ayush@gmail.com</span>
+                <span><i class="fas fa-phone-alt"></i> +91-8368570100</span>
+            </div>
+            <div class="header-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="logo-container">
+                <h1>AYUSH</h1>
+                <p>The Virtual Herbal Garden</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Login Box Section -->
+    <main>
+        <div class="login-container">
+            <h2>Create a new account</h2>
+            <form id="signupForm">
+                <div class="input-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email ID:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password"><i class="fas fa-lock"></i> Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="button" id="sendOtpBtn" class="secondary-btn">Send OTP</button>
+            
+                <div class="input-group">
+                    <label for="otp"><i class="fas fa-key"></i> Enter OTP:</label>
+                    <input type="text" id="otp" name="otp" placeholder="Enter your OTP" required>
+                </div>  
+                <button type="button" id="verifyOtpBtn" class="secondary-btn">Verify OTP</button>
+                <button type="submit" id="signupBtn" disabled>Sign Up</button>
+            </form>
+            <div id="message"></div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2025 Virtual Herbal Garden | <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a></p>
+    </footer>
+
+    <script>
+        // Send OTP Button
+        document.getElementById('sendOtpBtn').addEventListener('click', function() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (email && password) {
+                fetch('/send-otp', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password }), // Send email and password
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('message').innerText = data.message; // Show success/error message
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    document.getElementById('message').innerText = 'Error sending OTP. Please try again.';
+                });
+            } else {
+                document.getElementById('message').innerText = 'Please enter email and password.';
+            }
+        });
+
+        // Verify OTP Button
+        document.getElementById('verifyOtpBtn').addEventListener('click', function() {
+            const otp = document.getElementById('otp').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (otp && email && password) {
+                fetch('/verify-otp', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, otp, password }), // Send email, OTP, and password
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('message').innerText = data.message; // Show success/error message
+                    if (data.success) {
+                        document.getElementById('signupBtn').disabled = false; // Enable signup button
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    document.getElementById('message').innerText = 'Error verifying OTP. Please try again.';
+                });
+            } else {
+                document.getElementById('message').innerText = 'Please enter OTP.';
+            }
+        });
+
+        // Sign Up Button
+        document.getElementById('signupBtn').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent form submission
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Perform signup action (e.g., redirect or show success message)
+            alert(`Signup successful for ${email}`);
+            // You can redirect the user or perform other actions here
+        });
+    </script>
+</body>
+</html>
